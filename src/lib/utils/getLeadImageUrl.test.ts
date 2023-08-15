@@ -10,7 +10,7 @@ describe("getLeadImageUrl", () => {
         base.data.attributes.formats = {};
 
         const containsFormat = (f: ImageFormat) => formats.includes(f);
-        const addFormat = (f: ImageFormat) => base.data.attributes.formats[f] = JSON.parse(JSON.stringify({ ...TestBlogArticle.attributes.LeadImage.data.attributes.formats.small, url: `${f}.jpg` }));
+        const addFormat = (f: ImageFormat) => base.data.attributes.formats[f] = JSON.parse(JSON.stringify({ ...TestBlogArticle.attributes.LeadImage.data.attributes.formats.small, url: `http://${f}.jpg` }));
 
         let allFormats: ImageFormat[] = ["large", "medium", "small", "thumbnail"];
 
@@ -27,7 +27,7 @@ describe("getLeadImageUrl", () => {
 
         let result = getLeadImageUrl(image);
 
-        expect(result).toEqual("large.jpg");
+        expect(result).toEqual("http://large.jpg");
     })
 
     it.each([
@@ -37,6 +37,6 @@ describe("getLeadImageUrl", () => {
 
         let result = getLeadImageUrl(image);
 
-        expect(result).toEqual(`${format}.jpg`)
+        expect(result).toEqual(`http://${format}.jpg`)
     })
 })
