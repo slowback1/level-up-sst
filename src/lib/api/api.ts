@@ -1,9 +1,10 @@
-import { API_TOKEN, API_URL } from "$env/static/private";
-import type { BlogArticleListResponse } from "$lib/types";
+import { API_TOKEN } from "$env/static/private";
+import { PUBLIC_API_URL } from "$env/static/public";
+import type { BlogArticleIDResponse, BlogArticleListResponse } from "$lib/types";
 
 export default class API {
     private request(url: string) {
-        let fullUrl = `${API_URL}/${url}`;
+        let fullUrl = `${PUBLIC_API_URL}/${url}`;
 
         let options = {
             headers: {
@@ -18,7 +19,7 @@ export default class API {
         return this.request("api/blog-articles?populate=*")
     }
 
-    getBlogArticleById(id: number) {
+    getBlogArticleById(id: number): Promise<BlogArticleIDResponse> {
         return this.request(`api/blog-articles/${id}?populate=*`)
     }
 }
