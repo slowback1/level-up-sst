@@ -1,4 +1,4 @@
-import { PUBLIC_API_URL } from "$env/static/public";
+import { PUBLIC_IMAGE_URL } from "$env/static/public";
 import type { BlogArticleLeadImage } from "$lib/types";
 
 export default function getLeadImageUrl(image: BlogArticleLeadImage) {
@@ -17,5 +17,5 @@ function formatUrl(url: string) {
     if (url.includes("http"))
         return url;
 
-    return `${PUBLIC_API_URL}${url}`;
+    return `${PUBLIC_IMAGE_URL}${url}`;
 }

@@ -1,10 +1,9 @@
-import { API_TOKEN } from "$env/static/private";
-import { PUBLIC_API_URL } from "$env/static/public";
+import { API_TOKEN, API_URL } from "$env/static/private";
 import type { BlogArticleIDResponse, BlogArticleListResponse } from "$lib/types";
 
 export default class API {
     private request(url: string) {
-        let fullUrl = `${PUBLIC_API_URL}/${url}`;
+        let fullUrl = `${API_URL}/${url}`;
 
         let options = {
             headers: {
