@@ -48,6 +48,7 @@ export interface BlogArticleLeadImageAttributes {
     provider_metadata: any
     createdAt: string
     updatedAt: string
+    id?: number;
 }
 
 export interface Formats {
@@ -77,4 +78,19 @@ export interface BlogArticlePagination {
     pageSize: number
     pageCount: number
     total: number
+}
+
+export interface BlogFormImage {
+    url: string;
+    id: number;
+}
+
+export interface CreateBlogArticleRequest {
+    data: {
+        Title: string;
+        Body: string;
+        LeadImage: {
+            id: number
+        }
+    }
 }

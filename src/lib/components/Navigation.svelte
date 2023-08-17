@@ -1,5 +1,6 @@
 <nav>
 	<div class="nav-links">
+		<a href="/blog/create">Create Article</a>
 		<a href="/">Home</a>
 	</div>
 </nav>
@@ -21,6 +22,7 @@
 		justify-content: flex-end;
 		margin-right: 20px;
 		align-items: center;
+		gap: 12px;
 	}
 	a {
 		font-size: 1.25rem;

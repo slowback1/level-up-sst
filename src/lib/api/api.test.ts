@@ -29,4 +29,24 @@ describe("API", () => {
 
         expect(url).toContain("api/blog-articles/1");
     })
+
+    it("calls the correct url for getting a list of uploaded lead images", async () => {
+        await api.getImages();
+
+        let [url] = mockFetch.mock.lastCall;
+
+        expect(url).toContain("api/upload/files");
+    })
+
+    it("calls the correct url for creating a blog article", async () => {
+        let request = { data: { Body: "", LeadImage: { id: 1 }, Title: "" } }
+
+        await api.createBlogArticle(request)
+
+        let [url, options] = mockFetch.mock.lastCall;
+
+        expect(url).toContain("api/blog-articles");
+        expect(options.method).toEqual("POST");
+        expect(options.body).toEqual(JSON.stringify(request));
+    })
 })

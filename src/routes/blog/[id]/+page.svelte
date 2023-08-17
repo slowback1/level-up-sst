@@ -7,9 +7,13 @@
 	let { Body, LeadImage, Title, createdAt, publishedAt, updatedAt } = data.article.attributes;
 
 	let imageUrl = getLeadImageUrl(LeadImage);
+	let href = `/blog/${data.article.id}/edit`;
 </script>
 
 <img src={imageUrl} alt="lead-img" />
+
+<a {href}>Edit</a>
+
 <h1>
 	{Title}
 </h1>
