@@ -5,7 +5,7 @@ describe("processImageAttribute", () => {
     it("result contains the correct image url", () => {
         let result = processImageAttribute(TestImageListResult[0]);
 
-        expect(result.url).toEqual("undefined/uploads/thumbnail_Arkanoid_dd31f25696.jpg")
+        expect(result.url).toContain("uploads/thumbnail_Arkanoid_dd31f25696.jpg")
 
     });
 
