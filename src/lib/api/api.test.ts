@@ -49,4 +49,17 @@ describe("API", () => {
         expect(options.method).toEqual("POST");
         expect(options.body).toEqual(JSON.stringify(request));
     })
+
+    it("calls the correct url for uploading a file", async () => {
+        let mockFile = new File([], "test.txt");
+
+        await api.uploadFile(mockFile);
+
+        expect(mockFetch).toHaveBeenCalled();
+
+        let [url, options] = mockFetch.mock.lastCall;
+
+        expect(url).toContain("api/upload");
+        expect(options.method).toEqual("POST");
+    })
 })

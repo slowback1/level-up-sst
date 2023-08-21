@@ -1,5 +1,6 @@
 <nav>
 	<div class="nav-links">
+		<a href="/file/upload">Upload Image</a>
 		<a href="/blog/create">Create Article</a>
 		<a href="/">Home</a>
 	</div>

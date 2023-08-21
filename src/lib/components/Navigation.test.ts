@@ -15,7 +15,7 @@ describe("Navigation", () => {
         expect(nav).toBeTruthy();
     })
 
-    it.each(["/", "/blog/create"])("contains a link to %s", (link: string) => {
+    it.each(["/", "/blog/create", "/file/upload"])("contains a link to %s", (link: string) => {
         let result = renderComponent();
 
         let homeLink = result.container.querySelector(`[href='${link}']`);
