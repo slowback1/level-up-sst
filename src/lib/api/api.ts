@@ -41,8 +41,8 @@ export default class API {
     createBlogArticle(article: CreateBlogArticleRequest) {
         return this.request("api/blog-articles", "POST", article);
     }
-    editBlogArticle(article: CreateBlogArticleRequest) {
-        return this.request("api/blog-articles/1", "PUT", article);
+    editBlogArticle(id: number, article: CreateBlogArticleRequest) {
+        return this.request("api/blog-articles/" + id, "PUT", article);
     }
     uploadFile(file: File) {
         let url = this.appendUrl("api/upload");

@@ -1,17 +1,19 @@
 import API from '$lib/api/api.js';
 import processFormData from '$lib/utils/processFormData.js';
 import processImageAttribute from '$lib/utils/processImageAttribute.js';
+import { redirect } from '@sveltejs/kit';
 
 
 export const actions = {
     default: async (post) => {
+        let id = post.route.id;
         let formData = await post.request.formData();
 
         let postBody = processFormData<{ title: string; body: string; image: number; }>(formData);
 
         let api = new API();
 
-        await api.editBlogArticle({
+        await api.editBlogArticle(Number(id), {
             data: {
                 Body: postBody.body,
                 LeadImage: {
@@ -20,6 +22,9 @@ export const actions = {
                 Title: postBody.title
             }
         })
+
+
+        throw redirect(303, "/");
     }
 }
 

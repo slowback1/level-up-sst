@@ -1,6 +1,7 @@
 import API from '$lib/api/api.js';
 import processFormData from '$lib/utils/processFormData.js';
 import processImageAttribute from '$lib/utils/processImageAttribute.js';
+import { redirect } from '@sveltejs/kit';
 
 export const actions = {
     default: async (post) => {
@@ -19,6 +20,8 @@ export const actions = {
                 Title: postBody.title
             }
         })
+
+        throw redirect(303, "/");
     }
 }
 
