@@ -44,18 +44,18 @@ export default class API {
     editBlogArticle(id: number, article: CreateBlogArticleRequest) {
         return this.request("api/blog-articles/" + id, "PUT", article);
     }
-    uploadFile(file: File) {
+    async uploadFile(file: File) {
         let url = this.appendUrl("api/upload");
         let options: RequestInit = {
             method: "POST",
             headers: {
-                Authorization: this.getBearerToken(),
-                "Content-Type": "multipart/form-data"
+                Authorization: this.getBearerToken()
             }
         }
 
         let formData = new FormData();
-        formData.append("file", file);
+
+        formData.append("files", file);
 
         options.body = formData;
 
