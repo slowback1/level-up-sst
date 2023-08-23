@@ -8,7 +8,6 @@ export const actions = {
     default: async (post) => {
         let id = post.route.id;
 
-        console.log(id);
 
         let formData = await post.request.formData();
 

@@ -8,13 +8,11 @@ export const actions = {
 
         let postBody = processFormData<{ file: File }>(formData);
 
-        console.log(postBody);
 
         let api = ApiFactory.Create();
 
         let result = await api.uploadFile(postBody.file);
 
-        console.log(result);
 
         throw redirect(303, "/")
     }

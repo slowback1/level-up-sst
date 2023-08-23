@@ -215,7 +215,6 @@ export default class DynamoAccessor implements IAPI {
     }
     async editBlogArticle(id: number, article: CreateBlogArticleRequest): Promise<any> {
 
-        console.log(id, article);
 
         let command = new UpdateCommand({
             Key: {
