@@ -1,9 +1,9 @@
-import API from '$lib/api/api.js';
+import ApiFactory from '$lib/api/apiFactory.js';
 
 export async function load(request) {
     let id = Number(request.params.id);
 
-    let api = new API();
+    let api = ApiFactory.Create();
 
     let response = await api.getBlogArticleById(id);
 

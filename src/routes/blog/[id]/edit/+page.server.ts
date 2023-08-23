@@ -1,4 +1,4 @@
-import API from '$lib/api/api.js';
+import ApiFactory from '$lib/api/apiFactory.js';
 import processFormData from '$lib/utils/processFormData.js';
 import processImageAttribute from '$lib/utils/processImageAttribute.js';
 import { redirect } from '@sveltejs/kit';
@@ -7,13 +7,16 @@ import { redirect } from '@sveltejs/kit';
 export const actions = {
     default: async (post) => {
         let id = post.route.id;
+
+        console.log(id);
+
         let formData = await post.request.formData();
 
         let postBody = processFormData<{ title: string; body: string; image: number; }>(formData);
 
-        let api = new API();
+        let api = ApiFactory.Create();
 
-        await api.editBlogArticle(Number(id), {
+        await api.editBlogArticle(Number(0), {
             data: {
                 Body: postBody.body,
                 LeadImage: {
@@ -31,7 +34,7 @@ export const actions = {
 export async function load(request) {
     let id = request.params.id;
 
-    let api = new API();
+    let api = ApiFactory.Create();
 
     let article = await api.getBlogArticleById(Number(id));
     let images = await api.getImages();

@@ -1,4 +1,4 @@
-import API from '$lib/api/api.js';
+import ApiFactory from '$lib/api/apiFactory.js';
 import processFormData from '$lib/utils/processFormData.js';
 import { redirect } from '@sveltejs/kit';
 
@@ -10,7 +10,7 @@ export const actions = {
 
         console.log(postBody);
 
-        let api = new API();
+        let api = ApiFactory.Create();
 
         let result = await api.uploadFile(postBody.file);
 

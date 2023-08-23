@@ -1,7 +1,7 @@
-import API from "$lib/api/api";
+import ApiFactory from "$lib/api/apiFactory";
 
 export async function load() {
-    let api = new API();
+    let api = ApiFactory.Create();
 
     let articleResponse = await api.getBlogArticles();
 

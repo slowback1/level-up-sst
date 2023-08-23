@@ -1,4 +1,4 @@
-import API from '$lib/api/api.js';
+import ApiFactory from '$lib/api/apiFactory.js';
 import processFormData from '$lib/utils/processFormData.js';
 import processImageAttribute from '$lib/utils/processImageAttribute.js';
 import { redirect } from '@sveltejs/kit';
@@ -9,7 +9,7 @@ export const actions = {
 
         let postBody = processFormData<{ title: string; body: string; image: number; }>(formData);
 
-        let api = new API();
+        let api = ApiFactory.Create();
 
         await api.createBlogArticle({
             data: {
@@ -26,7 +26,7 @@ export const actions = {
 }
 
 export async function load() {
-    let api = new API();
+    let api = ApiFactory.Create();
 
     let images = await api.getImages();
 

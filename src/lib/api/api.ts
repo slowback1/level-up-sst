@@ -1,7 +1,9 @@
 import { API_TOKEN, API_URL } from "$env/static/private";
 import type { BlogArticleIDResponse, BlogArticleLeadImageAttributes, BlogArticleListResponse, CreateBlogArticleRequest } from "$lib/types";
+import type IAPI from "./IApi";
 
-export default class API {
+export default class API implements IAPI {
+
     private getBearerToken() {
         return `Bearer ${API_TOKEN}`
     }

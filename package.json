@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
+    "dev": "sst bind vite dev",
+    "build": "sst bind vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -12,7 +12,8 @@
     "lint": "prettier --plugin-search-dir . --check .",
     "format": "prettier --plugin-search-dir . --write .",
     "sst:deploy": "sst deploy",
-    "sst:dev": "sst dev"
+    "sst:dev": "sst dev",
+    "sst:cleanup": "sst remove"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^2.0.0",
@@ -33,6 +34,11 @@
   },
   "type": "module",
   "dependencies": {
-    "@testing-library/svelte": "^4.0.3"
+    "@aws-sdk/client-dynamodb": "^3.395.0",
+    "@aws-sdk/client-s3": "^3.397.0",
+    "@aws-sdk/lib-dynamodb": "^3.395.0",
+    "@aws-sdk/s3-request-presigner": "^3.397.0",
+    "@testing-library/svelte": "^4.0.3",
+    "aws-lambda": "^1.0.7"
   }
 }
