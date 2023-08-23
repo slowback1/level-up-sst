@@ -199,7 +199,7 @@ export default class DynamoAccessor implements IAPI {
         let item: DynamoBlogArticle = {
             body: article.data.Body,
             leadImageUrl: article.data.LeadImage.id.toString(),
-            id: 0,
+            id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER),
             title: article.data.Title,
 
         }
